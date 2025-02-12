@@ -2,7 +2,7 @@ body {
   background: rgb(125, 198, 205);
   color: rgb(45, 45, 45);
   padding: 10px;
-  font-family: Arial, sans-serif;
+  font-family: fantasy;
 }
 
 #all-contents {
@@ -76,3 +76,29 @@ h2,
 h3 {
   margin: 0px;
 }
+
+/* Portfolio styles */
+.content h1 {
+    color: black;
+  }
+  
+  #portfolio {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  #portfolio li {
+    background: #e6dc5e;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #portfolio li:hover {
+    background: #fc944f;
+  }
+  
+  #portfolio a {
+    text-decoration: none;
+    color: #241e1e;
+  }
