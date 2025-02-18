@@ -27,7 +27,6 @@ $(function () {
     //////////////////////////////////
 
     // TODO 1 - Enable the Grid
-    toggleGrid();
 
 
     // TODO 2 - Create Platforms
@@ -40,9 +39,9 @@ $(function () {
 
 
     // TODO 3 - Create Collectables
-    createCollectable("steve", 1350, 50);
-    createCollectable("diamond", 200, 170, 0.5, 0.7);
-    createCollectable("max", 700, 100, 0.9, 1)
+    createCollectable("diamondd", 1350, 50);
+    createCollectable("diamondd", 200, 170, 0.5, 0.7);
+    createCollectable("diamondd", 700, 100, 0.9, 1)
 
 
     
