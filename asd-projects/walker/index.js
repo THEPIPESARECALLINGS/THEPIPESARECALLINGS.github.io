@@ -45,6 +45,7 @@ function runProgram(){
   function newFrame() {
     
     repositionGameItem();
+    wallCollision();
     redrawGameItem();
 
   }
@@ -110,6 +111,26 @@ function runProgram(){
   }
 
   function wallCollision() {
-    
-  }
+   
+   var boardWidth = $("#board").width()
+   var boardHeight = $("#board").height() 
+
+
+    if (walker.positionX < 0) {
+      walker.positionX -= walker.positionX
+    }
+    if (walker.positionX > boardWidth) {
+      walker.positionX = boardWidth
+    }
+    if (walker.positionY < 0) {
+      walker.positionY -= walker.positionY
+    }
+    if (walker.positionY > boardHeight) {
+      walker.positionY = boardHeight
+    }
+
+
+
+
+  } 
 }
