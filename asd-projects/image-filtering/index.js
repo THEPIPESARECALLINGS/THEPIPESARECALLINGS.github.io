@@ -4,7 +4,10 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
-  applyFilter();
+  applyFilter(reddify);
+  applyFilterNoBackground(decreaseBlue);
+  applyFilter(increaseGreenByBlue);
+  applyFilterNoBackground(reddify);
 });
 
 /////////////////////////////////////////////////////////
@@ -34,20 +37,84 @@ function applyAndRender() {
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
 
-function applyFilter() {
-for (let )
+function applyFilter(filterFunction) {
+for (i = 0; i < image.length; i++) {
+    for (j = 0; j < image[i].length; j++) {
+      var pixel = image[i][j];
+      var pixelArray = rgbStringToArray(pixel);
+      // This is where I'll modify the color values later or something
+
+      filterFunction(pixelArray)
+
+      var updatedPixel = rgbArrayToString(pixelArray);
+      image[i][j] = updatedPixel
+      console.log(updatedPixel);
+    }
+  }
 }
 
 // TODO 9 Create the applyFilterNoBackground function
+
+function applyFilterNoBackground(filterFunction) {
+  
+  var backgroundColor = image[0][0];
+
+    for (let i = 0; i < image.length; i++) {
+      for (let j = 0; j < image[i].length; j++) {
+
+        var pixel = image[i][j]
+
+        if (image[i][j] !== backgroundColor) {
+
+          var pixelArray = rgbStringToArray(pixel);
+          filterFunction(pixelArray)
+          var updatedPixel = rgbArrayToString(pixelArray);
+          image[i][j] = updatedPixel
+
+      }
+    }
+  }
+}
 
 
 // TODO 6: Create the keepInBounds function
 
 
+  function keepInBounds(value) {
+  if (value < 0) {
+    return 0;
+  } 
+  else if (value > 255) {
+    return 255;
+  } 
+  else {
+    return value;
+  }
+}
+
+
+
+console.log(keepInBounds(50))
+
 // TODO 4: Create reddify filter function
 
+function reddify(pixelArray) {
+  pixelArray[RED] = 200
+}
 
 // TODO 7 & 8: Create more filter functions
 
+function decreaseBlue(pixelArray) {
+  
+pixelArray[BLUE] = keepInBounds(pixelArray[BLUE] - 50);
+
+}
+
+function increaseGreenByBlue(pixelArray) {
+
+pixelArray[GREEN] = keepInBounds(pixelArray[GREEN] + pixelArray[BLUE]);
+
+}
 
 // CHALLENGE code goes below here
+ 
